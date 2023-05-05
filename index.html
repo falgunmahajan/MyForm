@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms using localStorage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+
+        <form id ="form">
+            <div id = "box">Form</div>
+            <div class="container">
+
+                <div class="row">
+                    <label>Name</label><input type="text" id="name" name = "Name" >
+                </div> 
+                <div class="row">
+                    <label>Phone Number</label><input type="number" id="phone" name = "PhoneNumber" >
+                </div>
+                <div class="row">
+                   <label>Email</label><input type="text" name = "Email" id="email">
+               </div>
+               <div class="row">
+                   <label>Gender</label>
+                   <div class="radio">
+                       <input type="radio"  name = "Gender" value="Male"><span>Male</span>
+                       <input type="radio" name = "Gender"  value="Female" ><span>Female<span>
+                    </div>
+                </div>
+               <div class="row">
+                   <label>Languages</label>
+                   <div class="radio">
+                       <input type="checkbox" name = "Language" value="English"><span>English</span><input type="checkbox" name="Language", value="Hindi"><span>Hindi</span><input type="checkbox" name="Language", value="Urdu"><span>Urdu</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <label>Hobbies</label><select id="hobby" name="Hobby">
+                        <option value="Select">Select</option>
+                        <option value="Singing">Singing</option>
+                        <option value="Dancing">Dancing</option>
+                        <option value="Playing Cricket">Playing Cricket</option>
+                        <option value="Travelling">Travelling</option>
+                    </select>
+                </div>
+                <div class="button">
+                    <button class="btn submit">Submit</button>
+                    <button class="btn showData">Show Data</button>
+                </div>
+            </div>     
+        </form>
+        <div class="details">
+            <h1>User Details</h1>
+            <table class="info" border="1" cellspacing="0" cellpadding="10px">
+                <thead>
+                    <tr id="head">
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Languages</th>
+                        <th>Hobby</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+        <script src="form.js"></script>
+        <script src="validation.js"></script>
+</body>
+</html>

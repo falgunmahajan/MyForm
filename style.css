@@ -1,0 +1,151 @@
+#form {
+    margin: 80px;
+
+}
+
+#box {
+    border: 2px groove rgb(77, 151, 230);
+    height: 50px;
+    width: 500px;
+    font-size: 50px;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    background-color: rgb(173, 186, 186)
+}
+
+.container {
+    border: 2px groove rgb(77, 151, 230);
+    width: 500px;
+    height: 400px;
+    padding: 10px;
+    margin: auto;
+    background-color: rgb(173, 186, 186)
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    font-size: 18px;
+    margin: 10px;
+}
+
+input {
+    width: 300px;
+    height: 20px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+select {
+    width: 300px;
+    height: 25px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+input[type="radio"] {
+    width: 15px;
+    height: 15px;
+    margin: 5px 10px;
+
+}
+
+.radio {
+    width: 300px;
+    height: 20px;
+    margin: 10px
+}
+
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    margin: 5px 10px;
+}
+
+span {
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+.btn {
+    margin: 40px;
+    font-size: 20px;
+    width: 130px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(150, 174, 201);
+}
+
+h1 {
+    text-align: center;
+}
+
+.details {
+    display: none;
+}
+.record
+{
+    display:flex;
+    border:1px solid black;
+}
+
+
+@media screen and (max-width:800px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #box {
+        width: 400px;
+    }
+
+    .container {
+        width: 400px;
+        height: 600px;
+    }
+
+    input {
+        width: 250px;
+        margin: 10px;
+    }
+
+    select {
+        width: 250px;
+    }
+
+    label {
+        font-size: 20px;
+        border: 0;
+        background-color: transparent;
+        margin: 5px;
+        text-align: left;
+    }
+
+    .button {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .btn {
+        height: 50px;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column
+    }
+
+    #form {
+        margin: 0;
+
+    }
+
+
+}
