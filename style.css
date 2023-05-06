@@ -97,13 +97,17 @@ h1{
 
     #form {
         width: 300px;
-        height: 500px;
+        height: 600px;
     }
 
     input {
         width: 250px;
         height:30px;
         margin: 20px;
+    }
+    .radio
+    {
+        width:300px;
     }
     span {
         margin-right:1px;
