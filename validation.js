@@ -1,8 +1,9 @@
 
 let errors = document.getElementsByClassName("error")
+
+// Name Validation
 let name = document.querySelector("#name");
 name.addEventListener("blur", nameValid);
-
 function nameValid() {
     let regex = /^([a-z A-Z]){4,20}$/;
     if (regex.test(name.value)) {
@@ -18,6 +19,8 @@ function nameValid() {
     }
 
 }
+
+//Email Validation
 let mail = document.querySelector("#email");
 mail.addEventListener("blur", emailValid);
 
@@ -36,6 +39,7 @@ function emailValid() {
     }
 }
 
+// Phone Number Validation
 let phone = document.querySelector("#phone");
 phone.addEventListener("blur", phoneValid);
 
@@ -53,6 +57,8 @@ function phoneValid() {
        return false;
     }
 }
+
+//Gender field test for empty values
 let gender = document.getElementsByName("Gender");
 function genderValid() {
     if (gender[0].checked || gender[1].checked||gender[2].checked) {
@@ -60,6 +66,8 @@ function genderValid() {
         return true;
     }
 }
+
+//Language field test for empty values
 let language = document.getElementsByName("Language");
 function languageValid() {
     if (language[0].checked || language[1].checked || language[2].checked) {
@@ -67,12 +75,16 @@ function languageValid() {
         return true;
     }
 }
+
+//Hobby field test for empty values
 let hobby = document.querySelector("#hobby");
 function hobbyValid() {
     if (hobby.value != "") {
         return true;
     }
 }
+
+//Enable Submit button
 form.addEventListener("change",validate)
 function validate() {
 

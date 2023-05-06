@@ -2,6 +2,7 @@ const submit = document.querySelector('.submit');
 const form = document.getElementById("form");
 const show = document.querySelector('.showData');
 submit.disabled=true;
+
 //event handling for submit button
 submit.addEventListener("click", (e) => {
   e.preventDefault();
@@ -10,7 +11,6 @@ submit.addEventListener("click", (e) => {
   let user = Object.fromEntries(formValues);
   user.Language = formData.getAll("Language");
  
-
     let userDetails = (function () {
       if (localStorage.getItem('userDetails') === null) {
         return [];
