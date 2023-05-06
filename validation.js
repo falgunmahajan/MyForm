@@ -2,7 +2,7 @@
 let errors = document.getElementsByClassName("error")
 let name = document.querySelector("#name");
 name.addEventListener("blur", nameValid);
-let nameFlag, mailFlag, phoneFlag, genderFlag, languageFlag, hobbyFlag;
+
 function nameValid() {
     let regex = /^([a-z A-Z]){4,20}$/;
     if (regex.test(name.value)) {
