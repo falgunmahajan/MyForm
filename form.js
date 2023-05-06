@@ -1,15 +1,15 @@
 const submit = document.querySelector('.submit');
 const form = document.getElementById("form");
 const show = document.querySelector('.showData');
-
+submit.disabled=true;
 //event handling for submit button
 submit.addEventListener("click", (e) => {
+  e.preventDefault();
   let formData = new FormData(form);
   let formValues = formData.entries();
   let user = Object.fromEntries(formValues);
   user.Language = formData.getAll("Language");
-  if((validate(user)))
-  {
+ 
 
     let userDetails = (function () {
       if (localStorage.getItem('userDetails') === null) {
@@ -19,7 +19,7 @@ submit.addEventListener("click", (e) => {
     })();
     userDetails.push(user);
     localStorage.setItem("userDetails", JSON.stringify(userDetails));
-  }
+    show.style.display="block";
 });
 
 // //event handling for showData button
