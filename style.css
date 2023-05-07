@@ -29,7 +29,6 @@
 }
 .row
 {
-    /* border:1px solid black; */
     width:300px;
     height:40px;
     padding:5px;
@@ -89,18 +88,24 @@ h1{
         
 }
 
-/* @media screen and (max-width:600px) {
+ @media screen and (max-width:600px) {
 
     #box {
-        width: 320px;
+        width: 280px;
     }
 
     #form {
-        width: 320px;
-        height:700px;
+        width: 280px;
+        height:500px;
     }
+    .row
+{
+    width:280px;
+    height:60px;
+}
+}
 
-    input {
+  /*  input {
         width: 250px;
         height:30px;
         margin: 20px;
