@@ -94,14 +94,14 @@ h1{
 
     }
 
-    /* #box {
-        width: 280px;
+     #box {
+        margin:0px;
     }
 
     #form {
-        width: 280px;
-        height:500px;
+        margin:0px
     }
+    /*
     .row
 {
     width:280px;
