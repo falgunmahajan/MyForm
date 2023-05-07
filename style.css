@@ -5,7 +5,7 @@
 
 #box {
     border: 2px groove rgb(77, 151, 230);
-    height:40px;
+    height:30px;
     width:300px;
     padding:20px;
     font-size:50px;
@@ -20,7 +20,7 @@
 #form {
     border: 2px groove rgb(77, 151, 230);
     width: 300px;
-    height:400px;
+    height:420px;
     margin: auto;
     background-color: rgb(173, 186, 186);
     display:flex;
@@ -29,6 +29,7 @@
 }
 .row
 {
+    margin:5px;
     width:300px;
     height:40px;
     padding:5px;
@@ -65,6 +66,7 @@ span{
 {
     display:flex;
     justify-content: space-between;
+    margin:5px;
 }
 .btn {
     font-size: 20px;
@@ -89,10 +91,7 @@ h1{
 }
 
  @media screen and (max-width:600px) {
-    .container {
-        margin:0px;
-
-    }
+    
 
      #box {
         margin:0px;
@@ -101,39 +100,9 @@ h1{
     #form {
         margin:0px
     }
-    /*
-    .row
-{
-    width:280px;
-    height:60px;
-} */
-}
-
-  /*  input {
-        width: 250px;
-        height:30px;
-        margin: 20px;
-    }
-    .radio
-    {
-        width:250px;
-    }
-    span {
-        margin-right:1px;
-    }
-    select {
-        width: 250px;
-        height:30px;
-        margin: 20px;
-    }
-    
-    .btn {
-        width: 100px;
-        height: 50px;
-    }
     .form-container {
         display: flex;
         flex-direction: column
     }
    
-} */
+} 
