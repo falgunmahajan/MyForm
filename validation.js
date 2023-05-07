@@ -9,7 +9,7 @@ function nameValid() {
     if (regex.test(name.value)) {
         name.style.border = "2px solid green";
         errors[0].style.display = "none";
-    
+
         return true;
     }
     else {
@@ -29,7 +29,7 @@ function emailValid() {
     if (regex.test(mail.value)) {
         mail.style.border = "2px solid green";
         errors[2].style.display = "none";
-        
+
         return true;
     }
     else {
@@ -45,24 +45,25 @@ phone.addEventListener("blur", phoneValid);
 
 function phoneValid() {
 
-    if ((phone.value).length == 10) {
+    let regex = /^([0-9]){10}$/;
+    if (regex.test(phone.value)) {
         phone.style.border = "2px solid green";
         errors[1].style.display = "none";
-        
-       return true;
+
+        return true;
     }
     else {
         phone.style.border = "2px solid red";
         errors[1].style.display = "block";
-       return false;
+        return false;
     }
 }
 
 //Gender field test for empty values
 let gender = document.getElementsByName("Gender");
 function genderValid() {
-    if (gender[0].checked || gender[1].checked||gender[2].checked) {
-       
+    if (gender[0].checked || gender[1].checked || gender[2].checked) {
+
         return true;
     }
 }
@@ -71,7 +72,7 @@ function genderValid() {
 let language = document.getElementsByName("Language");
 function languageValid() {
     if (language[0].checked || language[1].checked || language[2].checked) {
-    
+
         return true;
     }
 }
@@ -85,14 +86,14 @@ function hobbyValid() {
 }
 
 //Enable Submit button
-form.addEventListener("change",validate)
+form.addEventListener("change", validate)
 function validate() {
 
     if (nameValid() && emailValid() && phoneValid() && genderValid() && languageValid() && hobbyValid()) {
-        
+
         submit.disabled = false;
     }
-    else{
+    else {
         submit.disabled = true;
     }
 }
