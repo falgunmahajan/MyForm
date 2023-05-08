@@ -79,6 +79,15 @@ span{
 h1{
     text-align: center;
 }
+.search
+{
+    display:flex;
+    justify-content:space-between;
+}
+#search
+{
+    margin-top:20px;
+}
 
 .details {
     display: none;
@@ -106,5 +115,15 @@ h1{
         display: flex;
         flex-direction: column
     }
+    .search
+{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:10px;
+}
+#search
+{
+    margin-top:0px;
+}
    
 } 

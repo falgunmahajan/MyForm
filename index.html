@@ -19,17 +19,17 @@
             <form id="form">
                 <div class="row">
                     <input type="text" id="name" name="Name" placeholder="Enter Your Name Here">
-                    <small class="error">Enter a valid Name</small>
+                    <small class="error"></small>
                 </div>
 
                 <div class="row">
                     <input type="text" id="phone" name="PhoneNumber" placeholder="Enter Your Phone Number Here">
-                    <small class="error">Enter a valid Phone number </small>
+                    <small class="error"></small>
                 </div>
 
                 <div class="row">
                     <input type="text" name="Email" id="email" placeholder="Enter Your Email Here">
-                    <small class="error">Enter a valid Email </small>
+                    <small class="error"></small>
                 </div>
 
                 <div class="row"><input type="radio" name="Gender" value="Male"><span>Male</span>
@@ -60,7 +60,11 @@
         </div>
 
         <div class="details">
-            <h1>User Details</h1>
+            <div class="search">
+                <h1>User Details</h1>
+
+                <input type="text" id="search" placeholder="Search by names....">
+            </div>
             <table class="info" border="1" cellspacing="0" cellpadding="10px">
                 <thead>
                     <tr id="head">
