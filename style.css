@@ -58,10 +58,7 @@ input[type="checkbox"] {
 span{
     margin-right:20px;
 }
-.showData
-{
-    display:none;
-}
+
 .button
 {
     display:flex;
@@ -75,6 +72,18 @@ span{
     border-radius: 10px;
    
     background-color: rgb(150, 174, 201);
+}
+.btn1 {
+    font-size:15px;
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    margin : 2px;
+    background-color: rgb(150, 174, 201);
+}
+.update
+{
+    display:none;
 }
 h1{
     text-align: center;

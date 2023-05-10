@@ -6,6 +6,7 @@ let name = document.querySelector("#name");
 name.addEventListener("blur", nameValid);
 function nameValid() {
     if(!(name.value))
+    
     {
         name.style.border = "2px solid red";
         errors[0].innerHTML="*Name field can't be empty";

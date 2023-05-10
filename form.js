@@ -1,11 +1,12 @@
 const submit = document.querySelector('.submit');
 const form = document.getElementById("form");
 const show = document.querySelector('.showData');
+const update = document.querySelector('.update');
 submit.disabled = true;
 
 //event handling for submit button
 submit.addEventListener("click", (e) => {
-  e.preventDefault();
+  
   let formData = new FormData(form);
   let formValues = formData.entries();
   let user = Object.fromEntries(formValues);
@@ -19,7 +20,7 @@ submit.addEventListener("click", (e) => {
   })();
   userDetails.push(user);
   localStorage.setItem("userDetails", JSON.stringify(userDetails));
-  show.style.display = "block";
+
 });
 
 // //event handling for showData button
@@ -31,21 +32,89 @@ show.addEventListener("click", (e) => {
       document.querySelector("tbody").innerHTML = "";
     }
     for (var item in user) {
-      var row = document.querySelector("tbody").insertRow(item)
+      var row = document.querySelector("tbody").insertRow()
+      row.setAttribute("index",item);
       for (var key in user[item]) {
         var cell = row.insertCell()
         cell.innerHTML = user[item][key];
       }
+      var cell = row.insertCell()
+        cell.innerHTML = "<button class = 'btn1 edit'> Edit</button><button class = 'btn1 delete'> Delete</button>";
     }
     document.querySelector(".form-container").style.display = "flex";
     document.querySelector(".details").style.display = "block";
   }
+  const edit = document.querySelectorAll(".edit");
+const dlt = document.querySelectorAll(".delete");
+
+// event handling for delete button
+for(var btns of dlt)
+{
+  let user = JSON.parse(localStorage.getItem("userDetails"))
+  btns.addEventListener("click",(e)=>
+  {
+    const btnClicked = e.target;
+    const currentRow = btnClicked.parentNode.parentNode;
+    const currentRowIndex = currentRow.getAttribute("index");
+    user.splice(currentRowIndex,1);
+    localStorage.setItem("userDetails",JSON.stringify(user));
+    currentRow.remove();
+  })
+}
+//Edit thecdetails
+for(var btns of edit)
+{
+  let user = JSON.parse(localStorage.getItem("userDetails"))
+  btns.addEventListener("click",(e)=>
+  {
+    const btnClicked = e.target;
+    const currentRow = btnClicked.parentNode.parentNode;
+    const currentRowIndex = currentRow.getAttribute("index");
+    const data = user[currentRowIndex];
+   document.querySelector("#name").value = data.Name;
+   document.querySelector("#phone").value = data.PhoneNumber;
+   document.querySelector("#email").value = data.Email;
+   let radio = document.getElementsByName("Gender");
+   for (var options of radio)
+   {
+     if(options.value==data.Gender)
+     {
+      options.checked=true;
+     }
+   }
+   let checkboxes = document.getElementsByName("Language");
+   for (var options of checkboxes)
+   {
+    for(var i of data.Language)
+    if(options.value== i )
+    {
+      options.checked=true;
+    } 
+   }
+   let dropdown = document.getElementById("hobby");
+   dropdown.value = data.Hobby;
+   submit.style.display="none";
+   update.style.display="block";
+   show.style.display="none";
+     //update the record
+update.addEventListener("click",()=>{
+  let formData = new FormData(form);
+  let formValues = formData.entries();
+  let newData = Object.fromEntries(formValues);
+  newData.Language = formData.getAll("Language");
+  user[currentRowIndex] = newData
+  localStorage.setItem("userDetails", JSON.stringify(user));
+})
+  })
+
+}
 });
+
+
 
 // Search for Particular record
 const search = document.querySelector("#search")
-search.addEventListener("keyup", match);
-function match() {
+search.addEventListener("keyup", ()=> {
   const searchValue = search.value.toUpperCase();
   const row = document.querySelector("tbody").rows;
   for(var i =0; i<row.length;i++)
@@ -60,8 +129,8 @@ function match() {
       row[i].style.display="none";
     }
   }
+})
 
-}
 
 
 
