@@ -26,6 +26,10 @@ submit.addEventListener("click", (e) => {
 // //event handling for showData button
 show.addEventListener("click", (e) => {
   e.preventDefault();
+  showData();
+});
+function showData()
+{
   if (localStorage.getItem("userDetails")) {
     let user = JSON.parse(localStorage.getItem("userDetails"));
     if (document.querySelector("tbody").innerHTML != "") {
@@ -50,23 +54,26 @@ const dlt = document.querySelectorAll(".delete");
 // event handling for delete button
 for(var btns of dlt)
 {
-  let user = JSON.parse(localStorage.getItem("userDetails"))
+  
   btns.addEventListener("click",(e)=>
   {
+    let user = JSON.parse(localStorage.getItem("userDetails"))
     const btnClicked = e.target;
     const currentRow = btnClicked.parentNode.parentNode;
     const currentRowIndex = currentRow.getAttribute("index");
     user.splice(currentRowIndex,1);
     localStorage.setItem("userDetails",JSON.stringify(user));
     currentRow.remove();
+    showData();
   })
 }
 //Edit thecdetails
 for(var btns of edit)
 {
-  let user = JSON.parse(localStorage.getItem("userDetails"))
+  
   btns.addEventListener("click",(e)=>
   {
+    let user = JSON.parse(localStorage.getItem("userDetails"))
     const btnClicked = e.target;
     const currentRow = btnClicked.parentNode.parentNode;
     const currentRowIndex = currentRow.getAttribute("index");
@@ -108,7 +115,8 @@ update.addEventListener("click",()=>{
   })
 
 }
-});
+}
+
 
 
 
