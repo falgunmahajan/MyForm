@@ -10,8 +10,9 @@
 </head>
 
 <body>
-   
+
     <div class="form-container">
+
 
 
         <div class="container">
@@ -33,15 +34,18 @@
                     <small class="error"></small>
                 </div>
 
-                <div class="row"><input type="radio" name="Gender" value="Male"><span>Male</span>
+                <div class="radio">
+                    <label>Gender:</label><br>
+                    <input type="radio" name="Gender" value="Male"><span>Male</span>
                     <input type="radio" name="Gender" value="Female"><span>Female</span>
                     <input type="radio" name="Gender" value="Others"><span>Others</span>
                 </div>
 
-                <div class="row">
-                    <input type="checkbox" name="Language" value="English"><span>English</span><input type="checkbox"
-                        name="Language" , value="Hindi"><span>Hindi</span><input type="checkbox" name="Language" ,
-                        value="Urdu"><span>Urdu</span>
+                <div class="radio">
+                    <label>Languages:</label><br>
+                    <input type="checkbox" name="Language" value="C++"><span>C++</span><input type="checkbox"
+                        name="Language" , value="Java"><span>Java</span><input type="checkbox" name="Language" ,
+                        value="Javascript"><span>Javascript</span>
 
                 </div>
                 <div class="row">
@@ -63,26 +67,37 @@
 
         <div class="details">
             <div class="search">
-                <h1>User Details</h1>
+                <div class="buttons">
+                    <button class="btn add">Add</button>
+                    <select class="btn sort">
+                        <option value="">Sort By</option>
+                        <option value="Name"> Name</option>
+                        <option value="Phone"> Phone</option>
+                        <option value="Email"> Email</option>
+                    </select>
+                </div>
 
                 <input type="text" id="search" placeholder="Search by names....">
             </div>
-            <table class="info" border="1" cellspacing="0" cellpadding="10px">
-                <thead>
-                    <tr id="head">
-                        <th>Name</th>
-                        <th>Phone Number</th>
-                        <th>Email</th>
-                        <th>Gender</th>
-                        <th>Languages</th>
-                        <th>Hobby</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
+                
+                <table class="info" border="1" cellspacing="0" cellpadding="10px">
+                    <caption><h1>User Details</h1></caption>
+                    <thead>
+                        <tr id="head">
+                            <th>Name</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Languages</th>
+                            <th>Hobby</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+        
         </div>
     </div>
     <script src="form.js"></script>

@@ -110,9 +110,11 @@ function validate() {
     if (validName && validPhone && validEmail && genderValid() && languageValid() && hobbyValid()) {
 
         submit.disabled = false;
+        
     }
     else {
         submit.disabled = true;
+        
     }
 }
 

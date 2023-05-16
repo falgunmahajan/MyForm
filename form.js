@@ -2,6 +2,8 @@ const submit = document.querySelector('.submit');
 const form = document.getElementById("form");
 const show = document.querySelector('.showData');
 const update = document.querySelector('.update');
+const add = document.querySelector('.add');
+
 submit.disabled = true;
 
 //event handling for submit button
@@ -28,25 +30,31 @@ show.addEventListener("click", (e) => {
   e.preventDefault();
   showData();
 });
+// create a table
+
 function showData()
 {
   if (localStorage.getItem("userDetails")) {
     let user = JSON.parse(localStorage.getItem("userDetails"));
+   
     if (document.querySelector("tbody").innerHTML != "") {
       document.querySelector("tbody").innerHTML = "";
     }
-    for (var item in user) {
-      var row = document.querySelector("tbody").insertRow()
-      row.setAttribute("index",item);
-      for (var key in user[item]) {
-        var cell = row.insertCell()
-        cell.innerHTML = user[item][key];
-      }
+    for (var item in user)
+     {
+      
+    var row = document.querySelector("tbody").insertRow()
+    row.setAttribute("index",item);
+    for (var key in user[item]) {
       var cell = row.insertCell()
-        cell.innerHTML = "<button class = 'btn1 edit'> Edit</button><button class = 'btn1 delete'> Delete</button>";
+      cell.innerHTML = user[item][key];
     }
-    document.querySelector(".form-container").style.display = "flex";
-    document.querySelector(".details").style.display = "block";
+    var cell = row.insertCell()
+      cell.innerHTML = "<button class = 'btn1 edit'> Edit</button><button class = 'btn1 delete'> Delete</button>";
+  }
+
+    document.querySelector(".container").style.display = "none";
+    document.querySelector(".details").style.display = "flex";
   }
   const edit = document.querySelectorAll(".edit");
 const dlt = document.querySelectorAll(".delete");
@@ -67,7 +75,7 @@ for(var btns of dlt)
     showData();
   })
 }
-//Edit thecdetails
+//Edit the details
 for(var btns of edit)
 {
   
@@ -103,14 +111,19 @@ for(var btns of edit)
    submit.style.display="none";
    update.style.display="block";
    show.style.display="none";
+   document.querySelector(".container").style.display = "block";
+   document.querySelector(".details").style.display = "none";
      //update the record
 update.addEventListener("click",()=>{
+  if(validate())
+  {
   let formData = new FormData(form);
   let formValues = formData.entries();
   let newData = Object.fromEntries(formValues);
   newData.Language = formData.getAll("Language");
   user[currentRowIndex] = newData
   localStorage.setItem("userDetails", JSON.stringify(user));
+  }
 })
   })
 
@@ -139,6 +152,69 @@ search.addEventListener("keyup", ()=> {
   }
 })
 
+// event handling for add button
+add.addEventListener("click",()=>
+{
+  document.querySelector(".container").style.display = "block";
+   document.querySelector(".details").style.display = "none";
+})
+
+
+//sort the record
+const sort = document.querySelector('.sort');
+sort.addEventListener("change",()=>
+{
+  let user = JSON.parse(localStorage.getItem("userDetails"));
+  if(sort.value=="Name")
+  {
+    user.sort((a,b)=>
+    {
+      if(a.Name>b.Name)
+      {
+        return 1;
+      }
+      else if(a.Name<b.Name)
+      {
+        return -1;
+      }
+        return 0
+      })
+  }
+  if(sort.value=="Phone")
+  {
+   user.sort((a,b)=>
+  {
+    if(a.PhoneNumber>b.PhoneNumber)
+    {
+      return 1;
+    }
+    else if(a.PhoneNumber<b.PhoneNumber)
+    {
+      return -1;
+    }
+      return 0
+    })
+  }
+  if(sort.value=="Email")
+  {
+   user.sort((a,b)=>
+  {
+    if(a.Email>b.Email)
+    {
+      return 1;
+    }
+    else if(a.Email<b.Email)
+    {
+      return -1;
+    }
+      return 0
+    })
+  }
+  localStorage.setItem("userDetails",JSON.stringify(user));
+  showData();
+  
+}
+)
 
 
 
