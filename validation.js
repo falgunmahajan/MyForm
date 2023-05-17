@@ -1,79 +1,79 @@
+function setError(field,id,msg)
+{
+    let element=document.getElementById(id);
+   let error =  element.getElementsByClassName("error")[0];
+   error.innerHTML=msg;
+   error.style.display = "block";
+    field.style.border="2px solid red";
 
-let errors = document.getElementsByClassName("error")
-let validName, validPhone, validEmail;
+}
+
+function validField(field,error)
+{
+    field.style.border = "2px solid green";
+    error.style.display = "none";
+}
+
+let errors=document.getElementsByClassName("error")
+
 // Name Validation
-let name = document.querySelector("#name");
+let name = document.querySelector(".name");
 name.addEventListener("blur", nameValid);
+let validName=true;
 function nameValid() {
-    if(!(name.value))
-    
-    {
-        name.style.border = "2px solid red";
-        errors[0].innerHTML="*Name field can't be empty";
-        errors[0].style.display = "block";
-       validName = false;
-    }
-    else if (!(/^([a-z A-Z]){4,20}$/).test(name.value)) {
-        name.style.border = "2px solid red";
-        errors[0].innerHTML="*Please Enter a valid name";
-        errors[0].style.display = "block";
-        validName = false;
-    }
-    else {
-        name.style.border = "2px solid green";
-        errors[0].style.display = "none";
-        validName = true;
+        if(!(name.value))
+        {
+            setError(name,"name","*Name field can't be empty");
+            validName= false;
+        }
+        else if (!(/^([a-z A-Z]){4,20}$/).test(name.value)) {
+            setError(name,"name","*Please Enter a valid name");
+            validName= false;
+        }
+        else{
+            validField(name,errors[0])
+            validName=true;
+        }
     }
 
-}
-
-
-// Phone Number Validation
-let phone = document.querySelector("#phone");
-phone.addEventListener("blur", phoneValid);
-
-function phoneValid() {
+    //Phone Number Validation
+    let phone = document.querySelector(".phone");
+    phone.addEventListener("blur", phoneValid);
+    let validPhone=true;
+    function phoneValid() {
     if(!(phone.value))
-    {
-        phone.style.border = "2px solid red";
-        errors[1].innerHTML="*Phone Number field can't be empty";
-        errors[1].style.display = "block";
-        validPhone = false;
+        {
+            setError(phone,"phone","*Phone field can't be empty");
+            validPhone=false;
+        }
+        else if (!(/^([0-9]){10}$/).test(phone.value)) {
+            setError(phone,"phone","*Please Enter a valid Phone Number");
+            validPhone=false;
+        }
+        else{
+            validField(phone,errors[1])
+            validPhone=true;
+        }
     }
-    else if (!(/^([0-9]){10}$/).test(phone.value)) {
-        phone.style.border = "2px solid red";
-        errors[1].innerHTML="*Please Enter a valid phone number";
-        errors[1].style.display = "block";
-        validPhone = false;
-    }
-    else {
-        phone.style.border = "2px solid green";
-        errors[1].style.display = "none";
-        validPhone = true;
-    }
-}
-//Email Validation
-let mail = document.querySelector("#email");
-mail.addEventListener("blur", emailValid);
+    
 
+//Email Validation
+let mail = document.querySelector(".email");
+mail.addEventListener("blur", emailValid);
+let validMail=true;
 function emailValid() {
     if(!(mail.value))
     {
-        mail.style.border = "2px solid red";
-        errors[2].innerHTML="*Email field can't be empty";
-        errors[2].style.display = "block";
-        validEmail = false;
+        setError(mail,"email","*Email field can't be empty");
+        validMail= false;
     }
     else if (!(/^([_\.\- 0-9a-z A-z]+)@([_\.\- 0-9a-z A-z]+)\.([a-zA-Z]{2,7})$/).test(mail.value)) {
-        mail.style.border = "2px solid red";
-        errors[2].innerHTML="*Please Enter a valid mail";
-        errors[2].style.display = "block";
-       validEmail = false;
+        setError(mail,"email","*Please Enter a valid Email");
+        validMail= false;
     }
     else {
-        mail.style.border = "2px solid green";
-        errors[2].style.display = "none";
-        validEmail= true;
+        validField(mail,errors[2])
+        validMail=true;
     }
 }
 
@@ -107,13 +107,15 @@ function hobbyValid() {
 form.addEventListener("change", validate)
 function validate() {
 
-    if (validName && validPhone && validEmail && genderValid() && languageValid() && hobbyValid()) {
+    if (validName && validPhone && validMail && genderValid() && languageValid() && hobbyValid()) {
 
         submit.disabled = false;
+        return true;
         
     }
     else {
         submit.disabled = true;
+        return false;
         
     }
 }

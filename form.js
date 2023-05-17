@@ -86,9 +86,9 @@ for(var btns of edit)
     const currentRow = btnClicked.parentNode.parentNode;
     const currentRowIndex = currentRow.getAttribute("index");
     const data = user[currentRowIndex];
-   document.querySelector("#name").value = data.Name;
-   document.querySelector("#phone").value = data.PhoneNumber;
-   document.querySelector("#email").value = data.Email;
+   document.querySelector(".name").value = data.Name;
+   document.querySelector(".phone").value = data.PhoneNumber;
+   document.querySelector(".email").value = data.Email;
    let radio = document.getElementsByName("Gender");
    for (var options of radio)
    {
@@ -114,7 +114,7 @@ for(var btns of edit)
    document.querySelector(".container").style.display = "block";
    document.querySelector(".details").style.display = "none";
      //update the record
-update.addEventListener("click",()=>{
+update.addEventListener("click",(e)=>{
   if(validate())
   {
   let formData = new FormData(form);
@@ -123,6 +123,9 @@ update.addEventListener("click",()=>{
   newData.Language = formData.getAll("Language");
   user[currentRowIndex] = newData
   localStorage.setItem("userDetails", JSON.stringify(user));
+  }
+  else{
+    e.preventDefault()
   }
 })
   })
@@ -162,63 +165,42 @@ add.addEventListener("click",()=>
 
 //sort the record
 const sort = document.querySelector('.sort');
-sort.addEventListener("change",(e)=>
+sort.addEventListener("change",()=>
 {
   let user = JSON.parse(localStorage.getItem("userDetails"));
-  let value = e.target.value;
-  console.log(value)
     user.sort((a,b)=>
     {
-      console.log(a.value)
-      if(a.value>b.value)
+      if(sort.value=="Name")
       {
-        return 1;
+        return sortRecord(a.Name.toLowerCase(),b.Name.toLowerCase())
       }
-      else if(a.value<b.value)
+      if(sort.value=="PhoneNumber")
       {
-        return -1;
+        return sortRecord(a.PhoneNumber.toLowerCase(),b.PhoneNumber.toLowerCase())
       }
-        return 0
+      if(sort.value=="Email")
+      {
+        return sortRecord(a.Email.toLowerCase(),b.Email.toLowerCase())
+      } 
     })
+    localStorage.setItem("userDetails",JSON.stringify(user));
+   showData();
+
 })
-  // if(sort.value=="Name")
-  // {
-  //   user.sort((a,b)=>
-  //   {
-  //     if(a.Name.toLowerCase()>b.Name.toLowerCase())
-  //     {
-  //       return 1;
-  //     }
-  //     else if(a.Name.toLowerCase()<b.Name.toLowerCase())
-  //     {
-  //       return -1;
-  //     }
-  //       return 0
-  //     })
-  // }
-  // if(sort.value=="Phone")
-  // {
-  //  user.sort((a,b)=>
-  //   a.PhoneNumber-b.PhoneNumber
-  //   )
-  // }
-  // if(sort.value=="Email")
-  // {
-  //  user.sort((a,b)=>
-  // {
-  //   if(a.Email.toLowerCase()>b.Email.toLowerCase())
-  //   {
-  //     return 1;
-  //   }
-  //   else if(a.Email.toLowerCase()<b.Email.toLowerCase())
-  //   {
-  //     return -1;
-  //   }
-  //     return 0
-  //   })
-  // }
-  // localStorage.setItem("userDetails",JSON.stringify(user));
-  // showData();
+function sortRecord(a,b)
+{
+  if(a>b)
+  {
+    return 1;
+  }
+  else if(a<b)
+  {
+    return -1;
+  }
+    return 0
+}
+
+  
 
 
 
