@@ -155,7 +155,9 @@ h1{
 }
 
  @media screen and (max-width:600px) {
-   
+.container{
+    margin:auto;
+}
      #box {
         width:300px;
     }
