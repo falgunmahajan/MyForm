@@ -162,50 +162,64 @@ add.addEventListener("click",()=>
 
 //sort the record
 const sort = document.querySelector('.sort');
-sort.addEventListener("change",()=>
+sort.addEventListener("change",(e)=>
 {
   let user = JSON.parse(localStorage.getItem("userDetails"));
-  if(sort.value=="Name")
-  {
+  let value = e.target.value;
+  console.log(value)
     user.sort((a,b)=>
     {
-      if(a.Name>b.Name)
+      console.log(a.value)
+      if(a.value>b.value)
       {
         return 1;
       }
-      else if(a.Name<b.Name)
+      else if(a.value<b.value)
       {
         return -1;
       }
         return 0
-      })
-  }
-  if(sort.value=="Phone")
-  {
-   user.sort((a,b)=>
-    a.PhoneNumber-b.PhoneNumber
-    )
-  }
-  if(sort.value=="Email")
-  {
-   user.sort((a,b)=>
-  {
-    if(a.Email>b.Email)
-    {
-      return 1;
-    }
-    else if(a.Email<b.Email)
-    {
-      return -1;
-    }
-      return 0
     })
-  }
-  localStorage.setItem("userDetails",JSON.stringify(user));
-  showData();
-  
-}
-)
+})
+  // if(sort.value=="Name")
+  // {
+  //   user.sort((a,b)=>
+  //   {
+  //     if(a.Name.toLowerCase()>b.Name.toLowerCase())
+  //     {
+  //       return 1;
+  //     }
+  //     else if(a.Name.toLowerCase()<b.Name.toLowerCase())
+  //     {
+  //       return -1;
+  //     }
+  //       return 0
+  //     })
+  // }
+  // if(sort.value=="Phone")
+  // {
+  //  user.sort((a,b)=>
+  //   a.PhoneNumber-b.PhoneNumber
+  //   )
+  // }
+  // if(sort.value=="Email")
+  // {
+  //  user.sort((a,b)=>
+  // {
+  //   if(a.Email.toLowerCase()>b.Email.toLowerCase())
+  //   {
+  //     return 1;
+  //   }
+  //   else if(a.Email.toLowerCase()<b.Email.toLowerCase())
+  //   {
+  //     return -1;
+  //   }
+  //     return 0
+  //   })
+  // }
+  // localStorage.setItem("userDetails",JSON.stringify(user));
+  // showData();
+
 
 
 

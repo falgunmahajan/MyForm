@@ -111,7 +111,7 @@ h1{
 .search
 {
     margin-bottom:40px;
-    width:980px;
+    width:1300px;
     
     display:flex;
     justify-content:space-between;
@@ -142,10 +142,7 @@ h1{
 { 
     color:red;       
 }
-/* .info
-{
-    align-self: center;
-} */
+
 
 .dropdown
 {
@@ -164,31 +161,16 @@ h1{
 
     #form {
         width:320px;
-        height:5500px
+        
     }
     input[type="text"],select {
-        width:300px;
+        width:280px;
     }
-    .search
-{
-    display:flex;
-    flex-direction:column;
-    margin-bottom:10px;
-}
 #search
 {
     margin-top:20px;
 }
-.search
-{
-    flex-direction: column;
-   
-} 
-.details {
-    margin: 80px 0;
-    width:1300px;
-    display:none;
-    flex-direction: column;
-}
+
+
 
  }
