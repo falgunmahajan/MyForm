@@ -183,17 +183,8 @@ sort.addEventListener("change",()=>
   if(sort.value=="Phone")
   {
    user.sort((a,b)=>
-  {
-    if(a.PhoneNumber>b.PhoneNumber)
-    {
-      return 1;
-    }
-    else if(a.PhoneNumber<b.PhoneNumber)
-    {
-      return -1;
-    }
-      return 0
-    })
+    a.PhoneNumber-b.PhoneNumber
+    )
   }
   if(sort.value=="Email")
   {
