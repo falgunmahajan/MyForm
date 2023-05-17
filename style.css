@@ -153,7 +153,7 @@ h1{
 
  @media screen and (max-width:600px) {
 .container{
-    margin:auto;
+    margin:30px auto;
 }
      #box {
         width:320px;
