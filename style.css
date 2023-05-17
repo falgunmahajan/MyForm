@@ -161,6 +161,7 @@ h1{
 
     #form {
         width:320px;
+        height:600px;
         
     }
     input[type="text"],select {
@@ -170,7 +171,23 @@ h1{
 {
     margin-top:20px;
 }
+.row
+{
 
+    margin-bottom:20px;
+    
+}
+.radio
+{
+   
+    margin-bottom:20px;
+    
+}
+.button
+{
+    
+    margin:30px 10px;
+}
 
 
  }
