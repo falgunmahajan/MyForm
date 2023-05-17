@@ -142,10 +142,10 @@ h1{
 { 
     color:red;       
 }
-.info
+/* .info
 {
     align-self: center;
-}
+} */
 
 .dropdown
 {
@@ -159,12 +159,12 @@ h1{
     margin:auto;
 }
      #box {
-        width:350px;
+        width:320px;
     }
 
     #form {
-        width:350px;
-        height:600px
+        width:320px;
+        height:5500px
     }
     input[type="text"],select {
         width:300px;
