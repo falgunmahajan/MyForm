@@ -155,30 +155,26 @@ h1{
 }
 
  @media screen and (max-width:600px) {
-.container{
-    margin:auto;
-}
+
      #box {
-        width:300px;
+        width:350px;
     }
 
     #form {
-        width:300px;
-        height:700px
+        width:350px;
     }
     input[type="text"],select {
-        width:250px;
+        width:300px;
     }
-    .form-container {
-        display: flex;
-        flex-direction: column
-    }
+   
+    
     .search
 {
     display:flex;
     flex-direction:column;
     margin-bottom:10px;
 }
+
 #search
 {
     margin-top:20px;
