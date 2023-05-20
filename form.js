@@ -1,3 +1,4 @@
+
 const submit = document.querySelector('.submit');
 const form = document.getElementById("form");
 const show = document.querySelector('.showData');
@@ -5,6 +6,7 @@ const update = document.querySelector('.update');
 const add = document.querySelector('.add');
 
 submit.disabled = true;
+
 
 //event handling for submit button
 submit.addEventListener("click", (e) => {
@@ -113,20 +115,20 @@ for(var btns of edit)
    show.style.display="none";
    document.querySelector(".container").style.display = "block";
    document.querySelector(".details").style.display = "none";
+   
+  
+
+    
      //update the record
+     
 update.addEventListener("click",(e)=>{
-  if(validate())
-  {
+  
   let formData = new FormData(form);
   let formValues = formData.entries();
   let newData = Object.fromEntries(formValues);
   newData.Language = formData.getAll("Language");
   user[currentRowIndex] = newData
   localStorage.setItem("userDetails", JSON.stringify(user));
-  }
-  else{
-    e.preventDefault()
-  }
 })
   })
 
